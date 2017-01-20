@@ -1,5 +1,7 @@
 {
   "server": {
-    "message": "YOU HIT THE SERVER WITH SAGA!"
+    "message": [
+      "Yo, what up!?", "ran-dumb", "so many messages!", "randomize ALL the messages!"
+    ]
   }
 }

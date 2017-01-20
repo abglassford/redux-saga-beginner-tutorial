@@ -13,7 +13,7 @@ const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync, getData })
           Decrement
         </button>
         <button onClick={getData}>
-          Get Data
+          Get random message
         </button>
         <p>
           Clicked: {value.clicks} times

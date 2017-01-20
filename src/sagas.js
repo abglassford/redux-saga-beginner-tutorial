@@ -16,15 +16,15 @@ export function* watchIncrementAsync() {
 
 export function* getData(action) {
   const message = yield call(get, url)
-  console.log(message.message);
+  console.log(message);
   yield put({
     type: 'SET_MESSAGE',
-    message: message.message
+    message: message
   })
 }
 
 export function* watchData() {
-  yield takeEvery('GET_DATA', getData)
+  yield takeEvery('GET_RANDOM', getData)
 }
 
 export default function* rootSaga() {

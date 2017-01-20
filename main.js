@@ -25,7 +25,7 @@ function render() {
       onIncrementAsync={() => action('INCREMENT_ASYNC')}
       onIncrement={() => action('INCREMENT')}
       onDecrement={() => action('DECREMENT')}
-      getData={() => action('GET_DATA')}
+      getData={() => action('GET_RANDOM')}
     />,
   document.getElementById('root')
   )
