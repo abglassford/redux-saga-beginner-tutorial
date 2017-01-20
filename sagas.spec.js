@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { incrementAsync } from './sagas';
+import { incrementAsync } from './src/sagas';
 import { delay } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
