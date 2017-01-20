@@ -1,5 +1,5 @@
 {
-  "clicks": {
-    "count": 0
+  "server": {
+    "message": "YOU HIT THE SERVER WITH SAGA!"
   }
 }

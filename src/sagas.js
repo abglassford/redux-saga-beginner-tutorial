@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import { get } from './routes';
 
-const url = "http://localhost:3000/clicks"
+const url = "http://localhost:3000/server"
 
 export function* incrementAsync() {
   yield call(delay, 1000)
@@ -15,8 +15,12 @@ export function* watchIncrementAsync() {
 }
 
 export function* getData(action) {
-  const count = call(get, url)
-  console.log(count);
+  const message = yield call(get, url)
+  console.log(message.message);
+  yield put({
+    type: 'SET_MESSAGE',
+    message: message.message
+  })
 }
 
 export function* watchData() {

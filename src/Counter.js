@@ -18,6 +18,9 @@ const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync, getData })
         <p>
           Clicked: {value.clicks} times
         </p>
+        <p>
+          Server Message: {value.message}
+        </p>
       </div>
 
 

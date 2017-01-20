@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const initialState = {
-  clicks: 0
+  clicks: 0,
+  message: ''
 }
 
 export default function counter(state = initialState, action) {
@@ -12,8 +13,9 @@ export default function counter(state = initialState, action) {
     case 'DECREMENT':
       console.log(state);
       return Object.assign({}, state, {clicks: state.clicks - 1})
-    case 'SET_COUNT':
-      return state
+    case 'SET_MESSAGE':
+      console.log(state);
+      return Object.assign({}, state, {message: action.message})
     default:
       return state
   }
