@@ -1,26 +1,39 @@
 /*eslint-disable no-unused-vars */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync, getData }) =>
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount () {
+    this.props.getClicks()
+  }
+
+  render() {
+    return  (
       <div>
         {' '}
-        <button onClick={onIncrement}>
+        <button onClick={this.props.onIncrement}>
           Increment
         </button>
         {' '}
-        <button onClick={onDecrement}>
+        <button onClick={this.props.onDecrement}>
           Decrement
         </button>
-        <button onClick={getData}>
+        <button onClick={this.props.getData}>
           Get random message
         </button>
         <p>
-          Clicked: {value.clicks} times
+          Clicked: {this.props.value.clicks} times
         </p>
         <p>
-          Server Message: {value.message}
+          Server Message: {this.props.value.message}
         </p>
       </div>
-
+    )
+  }
+}
 
 export default Counter

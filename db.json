@@ -1,5 +1,11 @@
 {
   "server": {
-    "count": 11
+    "clicks": 43,
+    "message": [
+      "Hey!",
+      "Don't delete me!",
+      "Woohoo!",
+      "Ran-dumb"
+    ]
   }
 }

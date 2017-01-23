@@ -7,17 +7,24 @@ const get = (url) => {
     })
 };
 
+const getClickCount = (url) => {
+  return axios.get(`${url}`)
+  .then(data => data.data.clicks)
+}
+
 const increment = (url) => {
   return axios.get(`${url}`)
   .then(data => {
     return axios.put(`${url}`, {
-      count: data.data.count += 1
+      clicks: data.data.clicks += 1,
+      message: data.data.message
     })
-    .then(data => console.log(data.data))
+    .then(data => data.data.clicks)
   })
 }
 
 export {
   get,
+  getClickCount,
   increment
 };

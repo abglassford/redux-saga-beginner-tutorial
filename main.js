@@ -25,6 +25,7 @@ function render() {
       onIncrement={() => action('INCREMENT')}
       onDecrement={() => action('DECREMENT')}
       getData={() => action('GET_RANDOM')}
+      getClicks={() => action('GET_CLICKS')}
     />,
   document.getElementById('root')
   )
