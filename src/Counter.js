@@ -1,11 +1,14 @@
 /*eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import axios from 'axios';
+import {debounce} from './routes';
 
 class Counter extends Component {
   constructor(props) {
     super(props);
   }
+
+
 
   componentWillMount () {
     this.props.getClicks()
@@ -15,14 +18,14 @@ class Counter extends Component {
     return  (
       <div>
         {' '}
-        <button onClick={this.props.onIncrement}>
+        <button onClick={() => debounce(this.props.onIncrement)}>
           Increment
         </button>
         {' '}
-        <button onClick={this.props.onDecrement}>
+        <button onClick={() => debounce(this.props.onDecrement)}>
           Decrement
         </button>
-        <button onClick={this.props.getData}>
+        <button onClick={() => debounce(this.props.getData)}>
           Get random message
         </button>
         <p>

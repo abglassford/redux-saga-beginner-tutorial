@@ -37,9 +37,17 @@ const decrement = (url) => {
   })
 }
 
+let timeout = 0;
+
+const debounce = (func) => {
+  clearTimeout(timeout)
+  timeout = setTimeout(() => func(), 200);
+}
+
 export {
   get,
   getClickCount,
   increment,
-  decrement
+  decrement,
+  debounce
 };
