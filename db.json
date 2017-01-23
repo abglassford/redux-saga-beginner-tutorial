@@ -1,7 +1,5 @@
 {
   "server": {
-    "message": [
-      "Yo, what up!?", "ran-dumb", "so many messages!", "randomize ALL the messages!"
-    ]
+    "count": 11
   }
 }

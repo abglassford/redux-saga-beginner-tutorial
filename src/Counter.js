@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync, getData }) =>
       <div>
         {' '}
-        <button onClick={onIncrementAsync}>Increment Async</button>
         <button onClick={onIncrement}>
           Increment
         </button>
