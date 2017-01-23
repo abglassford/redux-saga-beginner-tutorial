@@ -1,21 +1,31 @@
-/*eslint-disable no-unused-vars */
-import React, { Component } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { PropTypes, Component } from 'react';
 import axios from 'axios';
-import {debounce} from './routes';
+import { debounce } from './routes';
 
 class Counter extends Component {
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    getClicks: PropTypes.func,
+    onIncrement: PropTypes.func,
+    onDecrement: PropTypes.func,
+    getData: PropTypes.func,
+    value: PropTypes.obj,
   }
 
+  static defaultProps = {
+    getClicks: () => null,
+    onIncrement: () => null,
+    onDecrement: () => null,
+    getData: () => null,
+    value: {},
+  }
 
-
-  componentWillMount () {
-    this.props.getClicks()
+  componentWillMount() {
+    this.props.getClicks();
   }
 
   render() {
-    return  (
+    return (
       <div>
         {' '}
         <button onClick={() => debounce(this.props.onIncrement)}>
@@ -35,8 +45,8 @@ class Counter extends Component {
           Server Message: {this.props.value.message}
         </p>
       </div>
-    )
+    );
   }
 }
 
-export default Counter
+export default Counter;

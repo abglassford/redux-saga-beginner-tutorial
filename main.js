@@ -1,4 +1,4 @@
-import "babel-polyfill";
+import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -7,16 +7,16 @@ import createSagaMiddleware from 'redux-saga';
 
 import Counter from './src/Counter';
 import reducer from './src/reducers';
-import rootSaga  from './src/sagas';
+import rootSaga from './src/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   reducer,
-  applyMiddleware(sagaMiddleware)
+  applyMiddleware(sagaMiddleware),
 );
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
-const action = type => store.dispatch({type});
+const action = type => store.dispatch({ type });
 
 function render() {
   ReactDOM.render(
@@ -27,9 +27,9 @@ function render() {
       getData={() => action('GET_RANDOM')}
       getClicks={() => action('GET_CLICKS')}
     />,
-  document.getElementById('root')
-  )
-};
+  document.getElementById('root'),
+);
+}
 
 render();
 store.subscribe(render);
