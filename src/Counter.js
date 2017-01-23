@@ -9,7 +9,7 @@ class Counter extends Component {
     onIncrement: PropTypes.func,
     onDecrement: PropTypes.func,
     getData: PropTypes.func,
-    value: PropTypes.obj,
+    value: PropTypes.object,
   }
 
   static defaultProps = {

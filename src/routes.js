@@ -6,20 +6,26 @@ const get = url => axios.get(`${url}`)
 const getClickCount = url => axios.get(`${url}`)
 .then(data => data.data.clicks);
 
-
 const increment = url => axios.get(`${url}`)
-.then(data => axios.put(`${url}`, {
-  clicks: data.data.clicks += 1,
-  message: data.data.message,
-}))
-.then(data => data.data.clicks);
-
+.then((data) => {
+  const clicks = data.data.clicks + 1;
+  const message = data.data.message;
+  return axios.put(`${url}`, {
+    clicks,
+    message,
+  });
+})
+.then(newData => newData.data.clicks);
 
 const decrement = url => axios.get(`${url}`)
-.then(data => axios.put(`${url}`, {
-  clicks: data.data.clicks -= 1,
-  message: data.data.message,
-}))
+.then((data) => {
+  const clicks = data.data.clicks - 1;
+  const message = data.data.message;
+  return axios.put(`${url}`, {
+    clicks,
+    message,
+  });
+})
 .then(newData => newData.data.clicks);
 
 
