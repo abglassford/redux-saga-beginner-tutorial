@@ -23,8 +23,23 @@ const increment = (url) => {
   })
 }
 
+const decrement = (url) => {
+  return axios.get(`${url}`)
+  .then(data => {
+    return axios.put(`${url}`, {
+      clicks: data.data.clicks -= 1,
+      message: data.data.message
+    })
+    .then(data => {
+      console.log(data);
+      return data.data.clicks
+    })
+  })
+}
+
 export {
   get,
   getClickCount,
-  increment
+  increment,
+  decrement
 };

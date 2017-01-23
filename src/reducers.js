@@ -8,8 +8,8 @@ export default function counter(state = initialState, action) {
     case 'INCREMENT_CLICKS':
       console.log(action);
       return Object.assign({}, state, {clicks: action.clicks})
-    case 'DECREMENT':
-      return Object.assign({}, state, {clicks: state.clicks - 1})
+    case 'DECREMENT_CLICKS':
+      return Object.assign({}, state, {clicks: action.clicks})
     case 'SET_MESSAGE':
       return Object.assign({}, state, {message: action.message})
     case 'GET_CLICK_COUNT':

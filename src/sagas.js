@@ -1,7 +1,7 @@
 import { delay } from 'redux-saga';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { getClickCount, get, increment } from './routes';
+import { getClickCount, get, increment, decrement } from './routes';
 
 const url = "http://localhost:3000/server"
 
@@ -9,6 +9,14 @@ export function* incrementSaga() {
   const clicks = yield call(increment, url)
   yield put({
     type: 'INCREMENT_CLICKS',
+    clicks: clicks
+  })
+}
+
+export function* decrementSaga() {
+  const clicks = yield call(decrement, url)
+  yield put({
+    type: 'DECREMENT_CLICKS',
     clicks: clicks
   })
 }
@@ -23,7 +31,6 @@ export function* getData(action) {
 
 export function* getClicks(action) {
   const clicks = yield call(getClickCount, url)
-  console.log(clicks);
   yield put({
     type: 'GET_CLICK_COUNT',
     clicks: clicks
@@ -32,6 +39,10 @@ export function* getClicks(action) {
 
 export function* watchIncrement () {
   yield takeEvery('INCREMENT', incrementSaga)
+}
+
+export function* watchDecrement () {
+  yield takeEvery('DECREMENT', decrementSaga)
 }
 
 export function* watchData() {
@@ -46,6 +57,7 @@ export default function* rootSaga() {
   yield [
     watchMount(),
     watchIncrement(),
+    watchDecrement(),
     watchData()
   ];
 };
